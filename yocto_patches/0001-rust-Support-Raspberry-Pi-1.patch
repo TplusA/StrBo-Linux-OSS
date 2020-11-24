@@ -1,0 +1,31 @@
+From 371ccea655db4d5b2ab70df51aee4edce1098ed8 Mon Sep 17 00:00:00 2001
+From: Robert Tiemann <r.tiemann@ta-hifi.com>
+Date: Thu, 18 Aug 2022 16:08:07 +0200
+Subject: [PATCH] rust: Support Raspberry Pi 1.
+
+---
+ meta/recipes-devtools/rust/rust-common.inc | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/meta/recipes-devtools/rust/rust-common.inc b/meta/recipes-devtools/rust/rust-common.inc
+index 621cd4ad57..868e5e4545 100644
+--- a/meta/recipes-devtools/rust/rust-common.inc
++++ b/meta/recipes-devtools/rust/rust-common.inc
+@@ -126,6 +126,14 @@ TARGET_C_INT_WIDTH[arm] = "32"
+ MAX_ATOMIC_WIDTH[arm] = "64"
+ FEATURES[arm] = "+v6,+vfp2"
+ 
++## arm-unknown-linux-gnueabihf
++DATA_LAYOUT[arm-eabi] = "e-m:e-p:32:32-i64:64-v128:64:128-a:0:32-n32-S64"
++TARGET_ENDIAN[arm-eabi] = "little"
++TARGET_POINTER_WIDTH[arm-eabi] = "32"
++TARGET_C_INT_WIDTH[arm-eabi] = "32"
++MAX_ATOMIC_WIDTH[arm-eabi] = "64"
++FEATURES[arm-eabi] = "+v6,+vfp2,+thumb"
++
+ ## armv7-unknown-linux-gnueabihf
+ DATA_LAYOUT[armv7-eabi] = "e-m:e-p:32:32-i64:64-v128:64:128-a:0:32-n32-S64"
+ TARGET_ENDIAN[armv7-eabi] = "little"
+-- 
+2.32.0
+

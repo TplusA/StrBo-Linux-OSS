@@ -1,0 +1,30 @@
+CONF_VERSION = "2"
+
+DISTRO = "@DISTRO@"
+MACHINE = "raspberrypi"
+MACHINE_FEATURES:remove = " alsa keyboard screen touchscreen bluetooth sdio"
+PACKAGE_CLASSES = "package_rpm"
+
+DISTRO_GIT_COMMIT = "@DISTRO_GIT_COMMIT@"
+DISTRO_DATETIME = "@DISTRO_DATETIME@"
+@WITH_DISTRO_VERSION@DISTRO_VERSION = "@DISTRO_VERSION@"
+@WITH_DISTRO_LINE@DISTRO_LINE = "@DISTRO_LINE@"
+@WITH_DISTRO_FLAVOR@DISTRO_FLAVOR = "@DISTRO_FLAVOR@"
+@WITH_NIGHTLY_PACKAGES@DISTROOVERRIDES .= ":strbo-nightly"
+@WITH_NIGHTLY_PACKAGES@PRSERV_HOST = "192.168.15.12:8585"
+OTHER_DEPLOY_DIR_IMAGE = "@OTHER_DEPLOY_DIR_IMAGE@"
+
+PACKAGE_DEBUG_SPLIT_STYLE = "debug-file-directory"
+EXTRA_IMAGE_FEATURES += "read-only-rootfs"
+SDKIMAGE_FEATURES = "dev-pkgs staticdev-pkgs dbg-pkgs src-pkgs"
+USER_CLASSES = "buildstats"
+PATCHRESOLVE = "noop"
+
+TOOLCHAIN_HOST_TASK:append = " nativesdk-autoconf-archive"
+
+LICENSE_CREATE_PACKAGE = "1"
+
+USERADDEXTENSION = "useradd-staticids"
+USERADD_ERROR_DYNAMIC = "error"
+
+include local-override.conf

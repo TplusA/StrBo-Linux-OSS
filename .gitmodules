@@ -1,0 +1,12 @@
+[submodule "yocto"]
+	path = yocto
+	url = git://git.yoctoproject.org/poky
+[submodule "meta-raspberrypi"]
+	path = meta-raspberrypi
+	url = git://git.yoctoproject.org/meta-raspberrypi
+[submodule "meta-oe"]
+	path = meta-oe
+	url = https://github.com/openembedded/meta-openembedded.git
+[submodule "meta-strbo-free"]
+	path = meta-strbo-free
+	url = https://github.com/TplusA/meta-strbo-free.git
